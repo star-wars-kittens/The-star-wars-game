@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import { Col, Row, Typography } from 'antd';
+import { Col, Row } from 'antd';
 import { GlobalOutlined } from '@ant-design/icons';
 import { links } from 'constants/navbar';
 import { useLocale } from 'hooks/useLocale';

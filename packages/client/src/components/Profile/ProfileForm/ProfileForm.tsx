@@ -51,9 +51,11 @@ export const ProfileForm = () => {
   };
 
   const handleSignOut = async () => {
-    dispatch(signOut());
+    await dispatch(signOut());
 
-    navigate(ROUTES.LOGIN_PAGE);
+    navigate(ROUTES.LOGIN_PAGE, {
+      replace: true,
+    });
   };
 
   async function onSubmit(values: ProfileInput) {

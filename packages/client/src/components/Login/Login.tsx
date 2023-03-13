@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { defineMessages, useIntl } from 'react-intl';
 import { Button, Form, Input, Typography } from 'antd';
 import { authApi } from 'api/auth';
@@ -57,6 +57,9 @@ export const Login = () => {
   const navigate = useNavigate();
   const [form] = Form.useForm();
 
+  const location = useLocation();
+  const redirectPath = location.state?.from?.pathname || ROUTES.MAIN_PAGE_PATH;
+
   async function onSubmit(values: LoginInput) {
     try {
       const response = await authApi.login(values);
@@ -65,7 +68,7 @@ export const Login = () => {
         localStorage.setItem(LOCAL_STORAGE_IS_AUTH_KEY, 'true');
         dispatch(getCurrentUser());
 
-        navigate(ROUTES.MAIN_PAGE_PATH);
+        navigate(redirectPath, { replace: true });
       }
     } catch (err) {
       handleErrorFromServer(err);

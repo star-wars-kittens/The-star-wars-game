@@ -20,7 +20,7 @@ export default defineConfig({
       constants: path.join(__dirname, './src/constants'),
       core: path.join(__dirname, './src/core'),
       helpers: path.join(__dirname, './src/helpers'),
-      hoc: path.join(__dirname, './src/hoc'),
+      hocs: path.join(__dirname, './src/hocs'),
       hooks: path.join(__dirname, './src/hooks'),
       layouts: path.join(__dirname, './src/layouts'),
       models: path.join(__dirname, './src/models'),
